@@ -1,0 +1,11 @@
+<?php
+ /** @var $block \Magento\Framework\View\Element\Template */
+$product = $block->getProduct();
+$url = $product->getData($block->getData('at_code'));
+?>
+
+<?php if ($url) :?>
+    <div class="product attribute">
+        <a href="<?= $url ?>"><?= $url ?></a>
+    </div>
+<?php endif; ?>
