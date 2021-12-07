@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.overview" remove="true"/>
+        <move element="product.info.description" destination="product.info.media" after="-"/>
+        <referenceBlock name="page.main.title">
+            <block class="Magento\Catalog\Block\Product\View\Description"
+                   name="product.info.subtitle"
+                   template="Magento_Catalog::product/view/attribute.phtml">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getSubtitle</argument>
+                    <argument name="at_code" xsi:type="string">subtitle</argument>
+                    <argument name="css_class" xsi:type="string">subtitle</argument>
+                    <argument name="at_label" xsi:type="string">none</argument>
+                    <argument name="add_attribute" xsi:type="string">itemprop="subtitle"</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceContainer name="product.info.media">
+            <block class="Magento\Catalog\Block\Product\View\Description"
+                   name="product.info.external_url"
+                   template="Convert_FrontendUi::product/view/url.phtml"
+                   before="product.info.description">
+                <arguments>
+                    <argument name="at_code" xsi:type="string">external_url</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

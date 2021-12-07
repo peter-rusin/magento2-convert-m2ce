@@ -91,6 +91,10 @@
     "repositories": [
         {
             "type": "composer",
+            "url": "https://repo.convert.no/"
+        },
+        {
+            "type": "composer",
             "url": "https://repo.magento.com/"
         }
     ],
