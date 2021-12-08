@@ -1,0 +1,21 @@
+<?php /** @var $block \Convert\PhysicalStock\Block\PhysicalStock */ ?>
+<?php if ($block->getProduct()) : ?>
+    <div data-bind="scope: 'physical-stock'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "physical-stock": {
+                            "component": "Convert_PhysicalStock/js/product/view/physical-stock",
+                            "productId": "<?= $block->getProduct()->getId() ?>"
+                        }
+                    }
+                }
+            }
+        }
+
+    </script>
+<?php endif;

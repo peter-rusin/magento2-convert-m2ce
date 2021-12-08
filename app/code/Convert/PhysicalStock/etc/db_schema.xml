@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="convert_physical_stock" resource="default" engine="innodb" comment="">
+        <column xsi:type="int" name="physical_stock_id" unsigned="true" nullable="false" identity="true"/>
+        <column xsi:type="int" name="product_id" unsigned="true" nullable="false" identity="false"/>
+        <column xsi:type="int" name="stockist_store_id" unsigned="true" nullable="false" identity="false"/>
+        <column xsi:type="int" name="quantity" unsigned="true" nullable="false" identity="false"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="physical_stock_id"/>
+        </constraint>
+        <index referenceId="CONVERT_PHYSICAL_STOCK_PHYSICAL_STOCK_ID" indexType="btree">
+            <column name="physical_stock_id"/>
+        </index>
+    </table>
+</schema>
