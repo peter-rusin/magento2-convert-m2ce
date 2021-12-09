@@ -1,0 +1,14 @@
+<?php /** @var \Convert\Blog\Block\Category\CategoryView $block */ ?>
+
+<?php if ($category = $block->getCategory()) : ?>
+    <div class="category" data-id="<?= $category->getCategoryId(); ?>">
+        <h2><?= $category->getName(); ?></h2>
+        <p><?= $category->getContent(); ?></p>
+        <div class="category__posts">
+            <h2><?= __('Posts') ?></h2>
+            <?php foreach ($block->getPosts() as $post) : ?>
+                <a href="<?= $post->getUrl(); ?>"><?= $post->getTitle() ?></a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+<?php endif; ?>

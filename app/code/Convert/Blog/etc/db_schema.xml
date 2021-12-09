@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="convert_blog_category" resource="default" engine="innodb" comment="Category">
+        <column xsi:type="int" name="category_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Category Id Column"/>
+        <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Name Column"/>
+        <column xsi:type="varchar" name="content" nullable="false" length="255" comment="Content Column"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="category_id"/>
+        </constraint>
+        <index referenceId="CATEGORY_CATEGORY_ID" indexType="btree">
+            <column name="category_id"/>
+        </index>
+    </table>
+    <table name="convert_blog_post" resource="default" engine="innodb" comment="Post">
+        <column xsi:type="int" name="post_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Post Id Column"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="1024" comment="Title Column"/>
+        <column xsi:type="varchar" name="excerpt" nullable="false" length="255" comment="Excerpt Column"/>
+        <column xsi:type="text" name="content" nullable="false" comment="Content Column"/>
+        <column xsi:type="int" name="category_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Category Id Column"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="post_id"/>
+        </constraint>
+        <index referenceId="POST_POST_ID" indexType="btree">
+            <column name="post_id"/>
+        </index>
+    </table>
+</schema>

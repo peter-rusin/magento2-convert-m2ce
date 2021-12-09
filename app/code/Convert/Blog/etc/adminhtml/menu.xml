@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Convert_Blog::blog" title="Blog" sortOrder="10" module="Convert_Blog" resource="Convert_Blog::management"
+             dependsOnModule="Convert_Blog" translate="title"/>
+        <add id="Convert_Blog::posts" sortOrder="100" title="Posts" module="Convert_Blog" parent="Convert_Blog::blog"
+             resource="Convert_Blog::management" translate="title" action="blog/post/index"/>
+        <add id="Convert_Blog::categories" sortOrder="100" title="Categories" module="Convert_Blog"
+             parent="Convert_Blog::blog" resource="Convert_Blog::management" translate="title"
+             action="blog/category/index"/>
+    </menu>
+</config>

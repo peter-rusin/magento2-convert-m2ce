@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">convert_blog_post_form.convert_blog_post_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Post Form</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <namespace>convert_blog_post_form</namespace>
+        <dataScope>data.general</dataScope>
+        <deps>
+            <dep>convert_blog_post_form.convert_blog_post_form_data_source</dep>
+        </deps>
+        <buttons>
+            <button name="save" class="Convert\Blog\Block\Form\Post\Save"/>
+            <button name="back" class="Convert\Blog\Block\Form\Post\Back"/>
+            <button name="delete" class="Convert\Blog\Block\Form\Post\Delete"/>
+        </buttons>
+    </settings>
+    <dataSource name="convert_blog_post_form_data_source" component="Magento_Ui/js/form/provider">
+        <settings>
+            <submitUrl path="blog/post/save"/>
+        </settings>
+        <dataProvider class="Convert\Blog\Ui\DataProvider\PostDataProvider" name="convert_blog_post_form_data_source">
+            <settings>
+                <requestFieldName>post_id</requestFieldName>
+                <primaryFieldName>post_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general" sortOrder="10">
+        <settings>
+            <label translate="true">General</label>
+        </settings>
+        <field name="post_id" sortOrder="0" formElement="hidden">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">post_id</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Entity ID</label>
+                <dataScope>post_id</dataScope>
+            </settings>
+        </field>
+        <field name="title" sortOrder="00" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">title</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Title</label>
+                <dataScope>title</dataScope>
+            </settings>
+        </field>
+        <field name="excerpt" sortOrder="5" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">excerpt</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Excerpt</label>
+                <dataScope>excerpt</dataScope>
+            </settings>
+        </field>
+        <field name="content" sortOrder="10" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">content</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Content</label>
+                <dataScope>content</dataScope>
+            </settings>
+        </field>
+        <field name="category_id" sortOrder="20" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">category_id</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Category</label>
+                <dataScope>category_id</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Convert\Blog\Model\Options\CategoryListOptions"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+    </fieldset>
+</form>

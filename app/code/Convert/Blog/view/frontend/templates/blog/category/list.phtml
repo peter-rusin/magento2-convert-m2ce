@@ -1,0 +1,10 @@
+<?php /** @var \Convert\Blog\Block\Category\CategoryList $block */ ?>
+
+<div class="categories">
+    <?php foreach($block->getCategories() as $category) : ?>
+        <div class="categories__category" data-id="<?= $category->getCategoryId(); ?>">
+            <h2><?= $category->getName(); ?></h2>
+            <a href="<?= $category->getUrl(); ?>"><?= __('View'); ?></a>
+        </div>
+    <?php endforeach; ?>
+</div>

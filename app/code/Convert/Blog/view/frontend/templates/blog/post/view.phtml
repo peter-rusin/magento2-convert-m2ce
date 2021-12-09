@@ -1,0 +1,8 @@
+<?php /** @var \Convert\Blog\Block\Post\PostView $block */ ?>
+
+<?php if ($post = $block->getPost()) : ?>
+    <div class="post" data-id="<?= $post->getPostId(); ?>">
+        <h2><?= $post->getTitle(); ?></h2>
+        <p><?= $post->getContent(); ?></p>
+    </div>
+<?php endif; ?>

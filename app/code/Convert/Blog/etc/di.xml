@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Convert\Blog\Api\Data\PostInterface" type="Convert\Blog\Model\Data\PostData"/>
+    <preference for="Convert\Blog\Api\GetPostListInterface" type="Convert\Blog\Query\Post\GetListQuery"/>
+    <preference for="Convert\Blog\Api\SavePostInterface" type="Convert\Blog\Command\Post\SaveCommand"/>
+    <preference for="Convert\Blog\Api\DeletePostByIdInterface" type="Convert\Blog\Command\Post\DeleteByIdCommand"/>
+    <preference for="Convert\Blog\Api\Data\PostSearchResultsInterface" type="Convert\Blog\Model\PostSearchResults"/>
+    <preference for="Convert\Blog\Api\Data\CategoryInterface" type="Convert\Blog\Model\Data\CategoryData"/>
+    <preference for="Convert\Blog\Api\GetCategoryListInterface" type="Convert\Blog\Query\Category\GetListQuery"/>
+    <preference for="Convert\Blog\Api\SaveCategoryInterface" type="Convert\Blog\Command\Category\SaveCommand"/>
+    <preference for="Convert\Blog\Api\DeleteCategoryByIdInterface" type="Convert\Blog\Command\Category\DeleteByIdCommand"/>
+    <preference for="Convert\Blog\Api\Data\CategorySearchResultsInterface" type="Convert\Blog\Model\CategorySearchResults"/>
+</config>
