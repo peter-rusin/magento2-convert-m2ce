@@ -6,6 +6,41 @@ $url = $product->getData($block->getData('at_code'));
 
 <?php if ($url) :?>
     <div class="product attribute">
-        <a href="<?= $url ?>"><?= $url ?></a>
+        <a class="attribute__url" href="<?= $url ?>"><?= __('External URL'); ?></a>
+        <div data-bind="scope: 'show-url'">
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        </div>
     </div>
 <?php endif; ?>
+
+<script>
+    require([
+        'jquery'
+    ], function($){
+        $( '.attribute__url' ).click(function(e) {
+            if (confirm('Do you really want to leave website?')) {
+                window.location.href = $(this).attr('href')
+            } else {
+                e.preventDefault()
+            }
+        });
+    });
+</script>
+
+<script type="text/x-magento-init">
+    {
+        ".attribute__url": {
+            "Convert_FrontendUi/js/prompt": {}
+        },
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "show-url": {
+                        "component": "Convert_FrontendUi/js/show-url",
+                        "url": "<?= $url; ?>"
+                    }
+                }
+            }
+        }
+    }
+</script>

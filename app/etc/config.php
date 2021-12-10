@@ -356,6 +356,7 @@ return [
         'Klarna_Kp' => 1,
         'Klarna_Onsitemessaging' => 1,
         'Klarna_KpGraphQl' => 1,
+        'Limesharp_Stockists' => 1,
         'PayPal_Braintree' => 1,
         'PayPal_BraintreeGraphQl' => 1,
         'PeterRusin_MakerCLI' => 1,
