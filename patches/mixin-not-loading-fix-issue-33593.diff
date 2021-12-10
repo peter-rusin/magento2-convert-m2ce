@@ -1,0 +1,13 @@
+diff --git a/lib/web/mage/requirejs/resolver.js b/lib/web/mage/requirejs/resolver.js
+index 9818bc00c134..6631352177e8 100644
+--- a/lib/web/mage/requirejs/resolver.js
++++ b/lib/web/mage/requirejs/resolver.js
+@@ -34,7 +34,7 @@ define([
+      * @return {Boolean}
+      */
+     function isRejected(module) {
+-        return registry[module.id] && (registry[module.id].inited || registry[module.id].error);
++        return registry[module.id] && (registry[module.id].inited || registry[module.id].error || (registry[module.name] && registry[module.name].inited));
+     }
+ 
+     /**

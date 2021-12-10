@@ -4,6 +4,7 @@
     <module name="Convert_FrontendUi">
         <sequence>
             <module name="Magento_Catalog"/>
+            <module name="Magento_Ui"/>
         </sequence>
     </module>
 </config>
