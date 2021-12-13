@@ -1,0 +1,5 @@
+<!-- ko if: data -->
+    <span data-bind="i18n: 'Weather in '"></span>
+    <span data-bind="text: data.city + ' (' + data.country_id + '): '"></span>
+    <span data-bind="text: data.weather"></span>
+<!-- /ko -->

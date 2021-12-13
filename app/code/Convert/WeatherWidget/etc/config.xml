@@ -1,0 +1,12 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <convert_weather_widget>
+            <general>
+                <enabled>0</enabled>
+                <default_city>Kraków</default_city>
+                <default_country_id>PL</default_country_id>
+            </general>
+        </convert_weather_widget>
+    </default>
+</config>

@@ -347,6 +347,7 @@ return [
         'Convert_FrontendUi' => 1,
         'Convert_PhysicalStock' => 1,
         'Convert_Training' => 1,
+        'Convert_WeatherWidget' => 1,
         'Dotdigitalgroup_Email' => 1,
         'Dotdigitalgroup_Chat' => 1,
         'Dotdigitalgroup_ChatGraphQl' => 1,
