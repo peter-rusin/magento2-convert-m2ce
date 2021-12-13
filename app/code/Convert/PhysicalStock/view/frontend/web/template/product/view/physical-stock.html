@@ -1,0 +1,12 @@
+<!-- ko foreach: { data: availability, as: 'stock'} -->
+    <div class="stock">
+        <span data-bind="text: stock.stockist_store.name"></span>
+        &nbsp;
+        <span data-bind="i18n: 'quantity available:'"></span>
+        <span data-bind="text: stock.quantity"></span>
+    </div>
+<!-- /ko -->
+
+<!-- ko ifnot: availability.length -->
+    <p data-bind="i18n: 'no stock status is available at the moment'"></p>
+<!-- /ko -->
