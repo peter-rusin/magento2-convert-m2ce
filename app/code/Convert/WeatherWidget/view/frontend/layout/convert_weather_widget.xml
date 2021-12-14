@@ -1,0 +1,6 @@
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+    <referenceContainer name="page.top">
+        <block template="Convert_WeatherWidget::weather-widget.phtml" ifconfig="convert_weather_widget/general/enabled"/>
+    </referenceContainer>
+</layout>
