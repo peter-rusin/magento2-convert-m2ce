@@ -5,6 +5,7 @@ namespace Convert\Blog\Ui\DataProvider;
 
 use Convert\Blog\Api\Data\PostInterface;
 use Convert\Blog\Api\GetPostListInterface;
+use Convert\Blog\Api\PostRepositoryInterface;
 use Magento\Framework\Api\FilterBuilder;
 use Magento\Framework\Api\Search\ReportingInterface;
 use Magento\Framework\Api\Search\SearchCriteriaBuilder;
@@ -14,8 +15,8 @@ use Magento\Ui\DataProvider\SearchResultFactory;
 
 class PostDataProvider extends DataProvider
 {
-    /** @var GetPostListInterface */
-    private $getListQuery;
+    /** @var PostRepositoryInterface */
+    private $postRepository;
 
     /** @var SearchResultFactory */
     private $searchResultFactory;
@@ -31,7 +32,7 @@ class PostDataProvider extends DataProvider
         SearchCriteriaBuilder $searchCriteriaBuilder,
         RequestInterface $request,
         FilterBuilder $filterBuilder,
-        GetPostListInterface $getListQuery,
+        PostRepositoryInterface $postRepository,
         SearchResultFactory $searchResultFactory,
         array $meta = [],
         array $data = []
@@ -47,7 +48,7 @@ class PostDataProvider extends DataProvider
             $meta,
             $data
         );
-        $this->getListQuery = $getListQuery;
+        $this->postRepository = $postRepository;
         $this->searchResultFactory = $searchResultFactory;
     }
 
@@ -57,7 +58,7 @@ class PostDataProvider extends DataProvider
     public function getSearchResult()
     {
         $searchCriteria = $this->getSearchCriteria();
-        $result = $this->getListQuery->execute($searchCriteria);
+        $result = $this->postRepository->getList($searchCriteria);
 
         return $this->searchResultFactory->create(
             $result->getItems(),

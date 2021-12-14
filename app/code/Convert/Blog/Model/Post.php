@@ -1,13 +1,20 @@
 <?php
 declare(strict_types=1);
 
-namespace Convert\Blog\Model\Data;
+namespace Convert\Blog\Model;
 
-use Convert\Blog\Api\Data\PostInterface;
-use Magento\Framework\DataObject;
+use Convert\Blog\Model\ResourceModel\PostResource;
+use Magento\Framework\Model\AbstractModel;
 
-class PostData extends DataObject implements PostInterface
+class Post extends AbstractModel implements \Convert\Blog\Api\Data\PostInterface
 {
+    protected $_eventPrefix = 'post_model';
+
+    protected function _construct()
+    {
+        $this->_init(PostResource::class);
+    }
+
     /** @inheritDoc */
     public function getPostId(): ?int
     {

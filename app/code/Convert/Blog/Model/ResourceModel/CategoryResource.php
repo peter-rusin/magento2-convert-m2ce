@@ -8,11 +8,13 @@ use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
 class CategoryResource extends AbstractDb
 {
+    const TABLE_NAME = 'convert_blog_category';
+
     protected $_eventPrefix = 'category_resource_model';
 
     protected function _construct()
     {
-        $this->_init('convert_blog_category', CategoryInterface::CATEGORY_ID);
+        $this->_init(self::TABLE_NAME, CategoryInterface::CATEGORY_ID);
         $this->_useIsObjectNew = true;
     }
 }

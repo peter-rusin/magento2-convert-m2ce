@@ -71,7 +71,7 @@
                 <dataScope>excerpt</dataScope>
             </settings>
         </field>
-        <field name="content" sortOrder="10" formElement="input">
+        <field name="content" sortOrder="10" formElement="textarea">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="source" xsi:type="string">content</item>

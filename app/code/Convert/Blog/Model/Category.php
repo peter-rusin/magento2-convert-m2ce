@@ -1,13 +1,20 @@
 <?php
 declare(strict_types=1);
 
-namespace Convert\Blog\Model\Data;
+namespace Convert\Blog\Model;
 
-use Convert\Blog\Api\Data\CategoryInterface;
-use Magento\Framework\DataObject;
+use Convert\Blog\Model\ResourceModel\CategoryResource;
+use Magento\Framework\Model\AbstractModel;
 
-class CategoryData extends DataObject implements CategoryInterface
+class Category extends AbstractModel implements \Convert\Blog\Api\Data\CategoryInterface
 {
+    protected $_eventPrefix = 'category_model';
+
+    protected function _construct()
+    {
+        $this->_init(CategoryResource::class);
+    }
+
     /** @inheritDoc */
     public function getCategoryId(): ?int
     {

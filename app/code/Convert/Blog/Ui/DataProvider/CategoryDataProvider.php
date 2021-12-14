@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Convert\Blog\Ui\DataProvider;
 
+use Convert\Blog\Api\CategoryRepositoryInterface;
 use Convert\Blog\Api\Data\CategoryInterface;
-use Convert\Blog\Api\GetCategoryListInterface;
 use Magento\Framework\Api\FilterBuilder;
 use Magento\Framework\Api\Search\ReportingInterface;
 use Magento\Framework\Api\Search\SearchCriteriaBuilder;
@@ -14,8 +14,8 @@ use Magento\Ui\DataProvider\SearchResultFactory;
 
 class CategoryDataProvider extends DataProvider
 {
-    /** @var GetCategoryListInterface */
-    private $getListQuery;
+    /** @var CategoryRepositoryInterface */
+    private $categoryRepository;
 
     /** @var SearchResultFactory */
     private $searchResultFactory;
@@ -31,7 +31,7 @@ class CategoryDataProvider extends DataProvider
         SearchCriteriaBuilder $searchCriteriaBuilder,
         RequestInterface $request,
         FilterBuilder $filterBuilder,
-        GetCategoryListInterface $getListQuery,
+        CategoryRepositoryInterface $categoryRepository,
         SearchResultFactory $searchResultFactory,
         array $meta = [],
         array $data = []
@@ -47,7 +47,7 @@ class CategoryDataProvider extends DataProvider
             $meta,
             $data
         );
-        $this->getListQuery = $getListQuery;
+        $this->categoryRepository = $categoryRepository;
         $this->searchResultFactory = $searchResultFactory;
     }
 
@@ -57,7 +57,7 @@ class CategoryDataProvider extends DataProvider
     public function getSearchResult()
     {
         $searchCriteria = $this->getSearchCriteria();
-        $result = $this->getListQuery->execute($searchCriteria);
+        $result = $this->categoryRepository->getList($searchCriteria);
 
         return $this->searchResultFactory->create(
             $result->getItems(),

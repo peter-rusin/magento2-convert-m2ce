@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace Convert\Blog\Model\ResourceModel\PostModel;
+namespace Convert\Blog\Model\ResourceModel\Post;
 
 use Convert\Blog\Api\Data\PostInterface;
-use Convert\Blog\Model\PostModel;
+use Convert\Blog\Model\Post;
 use Convert\Blog\Model\ResourceModel\PostResource;
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
-class PostCollection extends AbstractCollection
+class Collection extends AbstractCollection
 {
     protected $_eventPrefix = 'post_collection';
 
@@ -31,7 +31,7 @@ class PostCollection extends AbstractCollection
     /** @inheritdoc */
     protected function _construct()
     {
-        $this->_init(PostModel::class, PostResource::class);
+        $this->_init(Post::class, PostResource::class);
     }
 
     protected function _afterLoadData()

@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Convert\Blog\Controller\Adminhtml\Category;
 
+use Convert\Blog\Api\CategoryRepositoryInterface;
 use Convert\Blog\Api\Data\CategoryInterface;
-use Convert\Blog\Api\DeleteCategoryByIdInterface;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Action\HttpGetActionInterface;
@@ -18,15 +18,15 @@ class Delete extends Action implements HttpPostActionInterface, HttpGetActionInt
 {
     const ADMIN_RESOURCE = 'Convert_Blog::management';
 
-    /** @var DeleteCategoryByIdInterface */
-    private $deleteByIdCommand;
+    /** @var CategoryRepositoryInterface */
+    private $categoryRepository;
 
     public function __construct(
         Context $context,
-        DeleteCategoryByIdInterface $deleteByIdCommand
+        CategoryRepositoryInterface $categoryRepository
     ) {
         parent::__construct($context);
-        $this->deleteByIdCommand = $deleteByIdCommand;
+        $this->categoryRepository = $categoryRepository;
     }
 
     public function execute() : ResultInterface
@@ -34,11 +34,11 @@ class Delete extends Action implements HttpPostActionInterface, HttpGetActionInt
         /** @var ResultInterface $resultRedirect */
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         $resultRedirect->setPath('*/*/');
-        $entityId = (int)$this->getRequest()->getParam(CategoryInterface::CATEGORY_ID);
+        $categoryId = (int)$this->getRequest()->getParam(CategoryInterface::CATEGORY_ID);
 
         try {
-            $this->deleteByIdCommand->execute($entityId);
-            $this->messageManager->addSuccessMessage(__('You have successfully deleted Category entity'));
+            $this->categoryRepository->deleteById($categoryId);
+            $this->messageManager->addSuccessMessage(__('You have successfully deleted Category'));
         } catch (CouldNotDeleteException|NoSuchEntityException $exception) {
             $this->messageManager->addErrorMessage($exception->getMessage());
         }

@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace Convert\Blog\Model\ResourceModel\CategoryModel;
+namespace Convert\Blog\Model\ResourceModel\Category;
 
 use Convert\Blog\Api\Data\CategoryInterface;
-use Convert\Blog\Model\CategoryModel;
+use Convert\Blog\Model\Category;
 use Convert\Blog\Model\ResourceModel\CategoryResource;
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
-class CategoryCollection extends AbstractCollection
+class Collection extends AbstractCollection
 {
     protected $_eventPrefix = 'category_collection';
 
@@ -31,7 +31,7 @@ class CategoryCollection extends AbstractCollection
     /** @inheritdoc */
     protected function _construct()
     {
-        $this->_init(CategoryModel::class, CategoryResource::class);
+        $this->_init(Category::class, CategoryResource::class);
     }
 
     protected function _afterLoadData()

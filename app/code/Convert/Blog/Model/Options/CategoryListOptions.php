@@ -3,22 +3,30 @@ declare(strict_types=1);
 
 namespace Convert\Blog\Model\Options;
 
-use Convert\Blog\Query\Category\GetListQuery;
+use Convert\Blog\Api\CategoryRepositoryInterface;
 use Magento\Framework\Data\OptionSourceInterface;
 
 class CategoryListOptions implements OptionSourceInterface
 {
-    /** @var GetListQuery */
-    private $getListQuery;
+    /** @var CategoryRepositoryInterface */
+    private $categoryRepository;
 
-    public function __construct(GetListQuery $getListQuery)
-    {
-        $this->getListQuery = $getListQuery;
+    /** @var \Magento\Framework\Api\SearchCriteriaBuilder */
+    private $searchCriteriaBuilder;
+
+    public function __construct(
+        CategoryRepositoryInterface $categoryRepository,
+        \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder
+    ) {
+        $this->categoryRepository = $categoryRepository;
+        $this->searchCriteriaBuilder = $searchCriteriaBuilder;
     }
 
     public function toOptionArray()
     {
-        $searchResult = $this->getListQuery->execute();
+        $searchResult = $this->categoryRepository->getList(
+            $this->searchCriteriaBuilder->create()
+        );
         $options = [];
 
         /** @var \Convert\Blog\Api\Data\CategoryInterface $category */
