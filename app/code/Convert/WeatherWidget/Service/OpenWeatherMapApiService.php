@@ -35,6 +35,9 @@ class OpenWeatherMapApiService implements WeatherServiceInterface
     /** @inheirtDoc */
     public function getWeatherForCity(?string $city = null, ?string $countryId = null): ApiResponse
     {
+        $city = $city ?? $this->config->getDefaultCity();
+        $countryId = $countryId ?? $this->config->getDefaultCountry();
+
         $response = $this->apiRequest->execute('weather', [
             'query' => [
                 'q' => sprintf('%s, %s', $city, $countryId),

@@ -10,5 +10,5 @@ interface WeatherServiceInterface
      * @param string $countryId
      * @return WeatherApiResponseInterface
      */
-    public function getWeatherForCity(string $city = 'Kraków', string $countryId = 'PL');
+    public function getWeatherForCity(?string $city = null, ?string $countryId = null): WeatherApiResponseInterface;
 }

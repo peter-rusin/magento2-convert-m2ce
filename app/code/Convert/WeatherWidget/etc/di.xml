@@ -5,7 +5,7 @@
     <preference for="Convert\WeatherWidget\Api\WeatherApiResponseInterface" type="Convert\WeatherWidget\Model\ApiResponse"/>
     <virtualType name="Convert\WeatherWidget\Service\OpenWeatherMapApiRequest" type="Convert\WeatherWidget\Model\ApiRequest">
         <arguments>
-            <argument name="requestUri" xsi:type="string">https://api.openweathermap.org/data/2.5/</argument>
+            <argument name="requestUri" xsi:type="const">Convert\WeatherWidget\Service\OpenWeatherMapApiService::API_REQUEST_URI</argument>
         </arguments>
     </virtualType>
 
