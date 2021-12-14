@@ -8,7 +8,7 @@ use Magento\Store\Model\ScopeInterface;
 
 class Config
 {
-    const PHYSICAL_STOCK_ENABLED_XML_PATH = 'convert_preorder/general/enabled';
+    const CONVERT_PREORDER_ENABLED = 'convert_preorder/general/enabled';
 
     /** @var ScopeConfigInterface */
     private $scopeConfig;
@@ -21,7 +21,7 @@ class Config
     public function isEnabled(int $storeId = null) : bool
     {
         return $this->scopeConfig->isSetFlag(
-            self::PHYSICAL_STOCK_ENABLED_XML_PATH,
+            self::CONVERT_PREORDER_ENABLED,
             ScopeInterface::SCOPE_STORE,
             $storeId
         );

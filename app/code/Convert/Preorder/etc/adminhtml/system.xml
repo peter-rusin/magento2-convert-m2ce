@@ -17,6 +17,14 @@
                 </field>
             </group>
         </section>
-
+        <section id="payment">
+            <group id="preorder" translate="label" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Preorder</label>
+                <field id="active" translate="label comment" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
     </system>
 </config>

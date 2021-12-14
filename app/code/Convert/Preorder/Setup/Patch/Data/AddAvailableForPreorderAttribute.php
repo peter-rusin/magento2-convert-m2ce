@@ -39,6 +39,7 @@ class AddAvailableForPreorderAttribute implements DataPatchInterface
             Product::ENTITY,
             self::AVAILABLE_FOR_PREORDER_ATTR,
             [
+                'group' => 'General',
                 'type' => 'int',
                 'label' => 'Available For Preorder',
                 'input' => 'boolean',
