@@ -346,6 +346,7 @@ return [
         'Amazon_Payment' => 1,
         'Convert_FrontendUi' => 1,
         'Convert_PhysicalStock' => 1,
+        'Convert_Preorder' => 1,
         'Convert_Training' => 1,
         'Dotdigitalgroup_Email' => 1,
         'Dotdigitalgroup_Chat' => 1,
