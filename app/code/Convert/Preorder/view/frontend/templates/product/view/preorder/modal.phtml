@@ -1,0 +1,35 @@
+<?php /** @var \Convert\Preorder\Block\Modal $block */ ?>
+
+<button title="Preorder" class="action primary" data-trigger="preorder">
+    <span data-bind="i18n: 'Preorder'"></span>
+</button>
+<div data-role="preorder">
+    <div class="content" data-role="content" data-bind="scope: 'preorderForm'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "[data-role=preorder]": {
+            "Convert_Preorder/js/product/view/preorder/modal": {
+                "type": "popup",
+                "title": "Preorder",
+                "trigger": "[data-trigger=preorder]",
+                "responsive": true
+            }
+        },
+        "[data-role=content]": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "preorderForm": {
+                        "component": "Convert_Preorder/js/product/view/preorder/form",
+                        "productId": "<?= $block->getProduct()->getId() ?>",
+                        "countryOptions": <?= $block->getSerializedCountryOptions() ?>,
+                        "form": <?= $block->getSerializedFormDefaults() ?>
+                    }
+                }
+            }
+        }
+    }
+
+</script>
