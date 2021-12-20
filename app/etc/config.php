@@ -347,6 +347,7 @@ return [
         'Convert_Blog' => 1,
         'Convert_FrontendUi' => 1,
         'Convert_PhysicalStock' => 1,
+        'Convert_Preorder' => 1,
         'Convert_Training' => 1,
         'Convert_WeatherWidget' => 1,
         'Dotdigitalgroup_Email' => 1,
