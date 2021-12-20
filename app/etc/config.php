@@ -344,6 +344,7 @@ return [
         'Amazon_Core' => 1,
         'Amazon_Login' => 1,
         'Amazon_Payment' => 1,
+        'Convert_Blog' => 1,
         'Convert_FrontendUi' => 1,
         'Convert_PhysicalStock' => 1,
         'Convert_Training' => 1,

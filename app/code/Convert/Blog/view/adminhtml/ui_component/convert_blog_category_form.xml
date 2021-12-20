@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">convert_blog_category_form.convert_blog_category_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Category Form</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <namespace>convert_blog_category_form</namespace>
+        <dataScope>data.general</dataScope>
+        <deps>
+            <dep>convert_blog_category_form.convert_blog_category_form_data_source</dep>
+        </deps>
+        <buttons>
+            <button name="save" class="Convert\Blog\Block\Form\Category\Save"/>
+            <button name="back" class="Convert\Blog\Block\Form\Category\Back"/>
+            <button name="delete" class="Convert\Blog\Block\Form\Category\Delete"/>
+        </buttons>
+    </settings>
+    <dataSource name="convert_blog_category_form_data_source" component="Magento_Ui/js/form/provider">
+        <settings>
+            <submitUrl path="blog/category/save"/>
+        </settings>
+        <dataProvider class="Convert\Blog\Ui\DataProvider\CategoryDataProvider" name="convert_blog_category_form_data_source">
+            <settings>
+                <requestFieldName>category_id</requestFieldName>
+                <primaryFieldName>category_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general" sortOrder="10">
+        <settings>
+            <label translate="true">General</label>
+        </settings>
+        <field name="category_id" sortOrder="0" formElement="hidden">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">category_id</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Entity ID</label>
+                <dataScope>category_id</dataScope>
+            </settings>
+        </field>
+        <field name="name" sortOrder="00" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">name</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Name</label>
+                <dataScope>name</dataScope>
+            </settings>
+        </field>
+        <field name="content" sortOrder="10" formElement="textarea">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">content</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Content</label>
+                <dataScope>content</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+</form>

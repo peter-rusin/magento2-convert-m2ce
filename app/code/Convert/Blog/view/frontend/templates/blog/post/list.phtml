@@ -1,0 +1,11 @@
+<?php /** @var \Convert\Blog\Block\Post\PostList $block */ ?>
+
+<div class="posts">
+    <?php foreach($block->getPosts() as $post) : ?>
+        <div class="posts__post" data-id="<?= $post->getPostId(); ?>">
+            <h2><?= $post->getTitle(); ?></h2>
+            <p><?= $post->getExcerpt(); ?></p>
+            <a href="<?= $post->getUrl(); ?>"><?= __('View'); ?></a>
+        </div>
+    <?php endforeach; ?>
+</div>

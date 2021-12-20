@@ -1,0 +1,29 @@
+{
+  "post": {
+    "column": {
+      "post_id": true,
+      "excerpt": true,
+      "content": true,
+      "category_id": true
+    },
+    "index": {
+      "POST_POST_ID": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  },
+    "category": {
+        "column": {
+            "category_id": true,
+            "name": true,
+            "content": true
+        },
+        "index": {
+            "CATEGORY_CATEGORY_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
