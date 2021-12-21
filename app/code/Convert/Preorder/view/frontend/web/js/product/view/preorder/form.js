@@ -32,16 +32,10 @@ define([
         },
 
         placeOrder: function() {
-            storage.post(
+            return storage.post(
                 '/rest/V1/place-preorder',
                 JSON.stringify(this.form)
-            ).done(response => {
-                if(response.error) {
-                    alert(response.error);
-                } else {
-                    alert(`Order ID: ${response.order_id}`);
-                }
-            })
+            )
         }
     })
 });
