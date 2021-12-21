@@ -1,0 +1,13 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.main">
+            <block name="product.info.preorder"
+                   class="Convert\Preorder\Block\Modal"
+                   template="Convert_Preorder::product/view/preorder/modal.phtml"
+                   ifconfig="convert_preorder/general/enabled"
+                   after="product.info"
+            />
+        </referenceContainer>
+    </body>
+</page>

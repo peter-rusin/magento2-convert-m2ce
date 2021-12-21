@@ -1,0 +1,40 @@
+<form method="post" data-bind="attr: {id: formId}">
+    <label>
+        <span data-bind="i18n: 'Email'"></span>
+        <input name="email" type="text" data-bind="textInput: form.email">
+    </label>
+    <label>
+        <span data-bind="i18n: 'First Name'"></span>
+        <input name="firstname" type="text" data-bind="textInput: form.firstname">
+    </label>
+    <label>
+        <span data-bind="i18n: 'Last Name'"></span>
+        <input name="lastname" type="text" data-bind="textInput: form.lastname">
+    </label>
+    <label>
+        <span data-bind="i18n: 'Street'"></span>
+        <input name="street1" type="text" data-bind="textInput: form.street1">
+        <input name="street2" type="text" data-bind="textInput: form.street2">
+        <input name="street3" type="text" data-bind="textInput: form.street3">
+    </label>
+    <label>
+        <span data-bind="i18n: 'City'"></span>
+        <input name="city" type="text"  data-bind="textInput: form.city">
+    </label>
+    <label>
+        <span data-bind="i18n: 'Country'"></span>
+        <select name="country" data-bind="options: countryOptions, optionsText: 'label', optionsValue: 'value', textInput: form.country"></select>
+    </label>
+    <label>
+        <span data-bind="i18n: 'State/Province'"></span>
+        <input name="region" type="text"  data-bind="textInput: form.region">
+    </label>
+    <label>
+        <span data-bind="i18n: 'Zip/Postal Code'"></span>
+        <input name="postcode" type="text" data-bind="textInput: form.postcode">
+    </label>
+    <label>
+        <span data-bind="i18n: 'Phone Number'"></span>
+        <input name="telephone" type="text" data-bind="textInput: form.telephone">
+    </label>
+</form>
